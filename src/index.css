@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --forest: #0e1512;
+    --moss: #6fa173;
+    --sand: #e7decc;
+    --gold: #d9a94c;
+    --soil: #2e1d12;
+    --terra: #b4703f;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-forest text-sand-50 font-sans antialiased;
+    overflow-x: hidden;
+  }
+
+  section[id] {
+    scroll-margin-top: 84px;
+  }
+
+  ::selection {
+    background: var(--gold);
+    color: #0e1512;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #080c0a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #17241d;
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #557e5b;
+  }
+}
+
+@layer components {
+  .container-eco {
+    @apply mx-auto w-full max-w-content px-6 md:px-10;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.28em];
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold
+           transition-all duration-300 focus-visible:outline-none focus-visible:ring-2
+           focus-visible:ring-offset-2 focus-visible:ring-offset-transparent;
+  }
+
+  /* CTA principal en oro — acento dinámico de la marca */
+  .btn-primary {
+    @apply btn bg-clay text-forest-900 hover:bg-clay-400 focus-visible:ring-clay;
+  }
+
+  /* CTA claro (para fondos oscuros cuando se quiere neutralidad) */
+  .btn-light {
+    @apply btn bg-sand text-forest hover:bg-sand-100 focus-visible:ring-sand;
+  }
+
+  /* CTA oscuro (para secciones claras/crema) */
+  .btn-dark {
+    @apply btn bg-forest text-sand-50 hover:bg-forest-700 focus-visible:ring-forest;
+  }
+
+  .btn-secondary {
+    @apply btn border border-sand/30 text-sand-50 hover:border-clay hover:text-clay-400 hover:bg-clay/5 focus-visible:ring-clay;
+  }
+
+  .btn-outline-dark {
+    @apply btn border border-forest/25 text-forest hover:border-forest hover:bg-forest hover:text-sand-50 focus-visible:ring-forest;
+  }
+
+  .card-surface {
+    @apply rounded-2xl border border-sand/10 bg-white/[0.03] backdrop-blur-sm;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-gradient-gold {
+    @apply bg-gradient-to-br from-clay-400 to-terra bg-clip-text text-transparent;
+  }
+  /* Velos de imagen para máxima legibilidad (estilo editorial) */
+  .veil-dark {
+    background: linear-gradient(
+      180deg,
+      rgba(8, 12, 10, 0.55) 0%,
+      rgba(8, 12, 10, 0.75) 55%,
+      rgba(8, 12, 10, 0.96) 100%
+    );
+  }
+  .veil-left {
+    background: linear-gradient(
+      90deg,
+      rgba(8, 12, 10, 0.92) 0%,
+      rgba(8, 12, 10, 0.6) 45%,
+      rgba(8, 12, 10, 0.15) 100%
+    );
+  }
+  .bg-soil-gradient {
+    background: linear-gradient(180deg, #0e1512 0%, #17241d 30%, #2e1d12 100%);
+  }
+  .bg-underground {
+    background: radial-gradient(
+        1100px 560px at 50% -10%,
+        rgba(111, 161, 115, 0.18),
+        transparent 60%
+      ),
+      linear-gradient(180deg, #0e1512 0%, #080c0a 45%, #221610 100%);
+  }
+}
+
+/* Scroll Expand (React Bits) — identidad EcoRoots */
+.scroll-expand {
+  background: #0e1512;
+  height: auto;
+}
+
+.scroll-expand__title {
+  font-family: "Space Grotesk", Inter, sans-serif;
+  color: #faf7f0;
+  text-shadow: 0 2px 28px rgba(14, 21, 18, 0.55);
+}
+
+.scroll-expand__hint {
+  font-family: Inter, sans-serif;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  color: rgba(217, 169, 76, 0.85);
+}
+
+.scroll-expand__overlay {
+  align-items: stretch;
+  justify-content: center;
+  text-align: left;
+  padding: 0;
+}
+
+.scroll-expand__scrim {
+  background: linear-gradient(
+    to top,
+    rgba(14, 21, 18, 0.92) 0%,
+    rgba(14, 21, 18, 0.45) 42%,
+    rgba(14, 21, 18, 0.2) 100%
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
