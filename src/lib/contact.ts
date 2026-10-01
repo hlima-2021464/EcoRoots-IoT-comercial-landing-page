@@ -18,7 +18,7 @@ type ContactConfig = {
 
 export const CONTACT: ContactConfig = {
   /** true cuando ya se han colocado los enlaces reales */
-  configured: false,
+  configured: true,
 
   whatsapp: {
     /** Reemplazar por la URL real. Ej: "https://wa.me/50200000000" */
@@ -30,9 +30,8 @@ export const CONTACT: ContactConfig = {
   },
 
   instagram: {
-    /** Reemplazar por la URL real. Ej: "https://instagram.com/ecoroots.iot" */
     url: "https://www.instagram.com/ecoroots.gt?stkn=bXpxdGphb2E1ZTFi",
-    handle: "@ecoroots.iot",
+    handle: "@ecoroots.gt",
     label: "Síganos en Instagram",
   },
 };
@@ -47,7 +46,7 @@ export function whatsappHref(): string {
 }
 
 export function instagramHref(): string {
-  return CONTACT.instagram.url === "https://www.instagram.com/ecoroots.gt?stkn=bXpxdGphb2E1ZTFi" ? "#contacto" : CONTACT.instagram.url;
+  return CONTACT.instagram.url === "PENDIENTE" ? "#contacto" : CONTACT.instagram.url;
 }
 
-export const isPlaceholder = (v: string) => v === "https://www.instagram.com/ecoroots.gt?stkn=bXpxdGphb2E1ZTFi";
+export const isPlaceholder = (v: string) => v === "PENDIENTE";
