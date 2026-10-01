@@ -31,7 +31,7 @@ export const CONTACT: ContactConfig = {
 
   instagram: {
     /** Reemplazar por la URL real. Ej: "https://instagram.com/ecoroots.iot" */
-    url: "PENDIENTE",
+    url: "https://www.instagram.com/ecoroots.gt?stkn=bXpxdGphb2E1ZTFi",
     handle: "@ecoroots.iot",
     label: "Síganos en Instagram",
   },
@@ -47,7 +47,7 @@ export function whatsappHref(): string {
 }
 
 export function instagramHref(): string {
-  return CONTACT.instagram.url === "PENDIENTE" ? "#contacto" : CONTACT.instagram.url;
+  return CONTACT.instagram.url === "https://www.instagram.com/ecoroots.gt?stkn=bXpxdGphb2E1ZTFi" ? "#contacto" : CONTACT.instagram.url;
 }
 
-export const isPlaceholder = (v: string) => v === "PENDIENTE";
+export const isPlaceholder = (v: string) => v === "https://www.instagram.com/ecoroots.gt?stkn=bXpxdGphb2E1ZTFi";
